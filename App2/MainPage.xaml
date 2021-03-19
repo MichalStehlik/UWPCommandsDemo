@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="App2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:App2.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="299" d:DesignHeight="205.5">
+    <Page.DataContext>
+        <viewmodel:MainViewModel />
+    </Page.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Roll" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Command="{Binding Roll}" />
+        <TextBlock HorizontalAlignment="Center" Text="{Binding Max}" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1"/>
+        <TextBlock  HorizontalAlignment="Center" Text="{Binding Number}" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0"/>
+        <Button Content="{Binding RelativeSource={RelativeSource Self}, Path=CommandParameter}" Margin="53,24,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding SetMax}" CommandParameter="6" />
+        <Button Content="{Binding RelativeSource={RelativeSource Self}, Path=CommandParameter}" Margin="171,24,0,0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding SetMax}" CommandParameter="10" />
+    </Grid>
+</Page>
